@@ -1,0 +1,19 @@
+{
+  "name": "web-server",
+  "version": "1.0.0",
+  "description": "Useful git information\r 1. How to setup git:\r     - download an install git\r     - move to the project you want to commit and use following commands:\r         - git init -> will create a git repository for the root folder\r                    -> will add all files in untracked state\r         - git status -> will show the status of git files\r         - .gitignore -> in this files we can add files we want to ignore\r                      -> the name of the file needs to be .gitignore to be recognized by git\r         - git add -> will add the files in the \"to be commited\" state (staging state)\r                   -> to add all files in untracked stage we can use git add .\r 2. How to push commited files to GitHub\r     - Git ssh\r         -> All the commands need to be executed from git Bash\r         -> ssh-keygen -t rsa -b 4096 -C \"orlando.jurcone@yahoo.com\" (create ssh key in order to be able to push files)\r          * -t rsa (ssh key of type rsa)\r          * -b 4096 (4096 bytes for the key)\r          * -C key label\r          - after command is executed a wizard will appear\r           * File in which to save the key (default folder can be used)\r           * passphrase (no passphrase can be used)\r          - now an id_rsa is created (this needs to stay on the local machine) and id_rsa.pub is the public key\r          - id_rsa.pub it is used to link files to github and heroku\r         -> eval $(ssh-agent -s) - will start the ssh agent. If it is running the pid of agent is printed.\r         -> ssh-add ~/.ssh/id_rsa - add iddentity.\r     - Create new repository on Github (from UI)\r         -> after repository is created follow the steps from \"…or create a new repository on the command line\"\r          * git remote add origin https://github.com/OJurcone/node-weather-wesite.git - will set the communication\r          * git push -u origin master -> will push origin to master branch (before running this ssh needs to be set like below)\r             -> from UI go to Settings-> SSH and GPG keys-> New ssh key\r                 -> Add title and Key (e.g. Work laptop for title and SSH key)\r                     -> to get SSH key -> cat ~/.ssh/id_rsa.pub\r                 -> Test connection from terminal (ssh -T git@github.com)\r             -> if connection is successful git push -u origin master can be executed.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OJurcone/node-weather-wesite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OJurcone/node-weather-wesite/issues"
+  },
+  "homepage": "https://github.com/OJurcone/node-weather-wesite#readme"
+}
