@@ -62,4 +62,7 @@ II. Useful Heroku information
         -> we can leave it as fetch('/weather?address=' + location).then((response) so the application
         will know to run on local host or Heroku server.
 5. Commit to Heorku
-    ->
+    -> Normal git commit and push
+    -> if "git remote" is typed we need to have both heroku (configured by Heroku) and origin (configured by us)
+    -> we need to push on Heorku master repository now
+        -> git push heroku master
