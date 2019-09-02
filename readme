@@ -1,0 +1,5 @@
+Useful git information
+1. How to setup git:
+    - download an install git
+    - move to the project you want to commit and use following commands:
+        - git init -> will create a git repository for the root folder
