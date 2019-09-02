@@ -1,5 +1,65 @@
-Useful git information
+I. Useful git information
+
 1. How to setup git:
     - download an install git
     - move to the project you want to commit and use following commands:
         - git init -> will create a git repository for the root folder
+                   -> will add all files in untracked state
+        - git status -> will show the status of git files
+        - .gitignore -> in this files we can add files we want to ignore
+                     -> the name of the file needs to be .gitignore to be recognized by git
+        - git add -> will add the files in the "to be commited" state (staging state)
+                  -> to add all files in untracked stage we can use git add .
+2. How to push commited files to GitHub
+    - Git ssh
+        -> All the commands need to be executed from git Bash
+        -> ssh-keygen -t rsa -b 4096 -C "orlando.jurcone@yahoo.com" (create ssh key in order to be able to push files)
+         * -t rsa (ssh key of type rsa)
+         * -b 4096 (4096 bytes for the key)
+         * -C key label
+         - after command is executed a wizard will appear
+          * File in which to save the key (default folder can be used)
+          * passphrase (no passphrase can be used)
+         - now an id_rsa is created (this needs to stay on the local machine) and id_rsa.pub is the public key
+         - id_rsa.pub it is used to link files to github and heroku
+        -> eval $(ssh-agent -s) - will start the ssh agent. If it is running the pid of agent is printed.
+        -> ssh-add ~/.ssh/id_rsa - add iddentity.
+    - Create new repository on Github (from UI)
+        -> after repository is created follow the steps from "…or create a new repository on the command line"
+         * git remote add origin https://github.com/OJurcone/node-weather-wesite.git - will set the communication
+         * git push -u origin master -> will push origin to master branch (before running this ssh needs to be set like below)
+            -> from UI go to Settings-> SSH and GPG keys-> New ssh key
+                -> Add title and Key (e.g. Work laptop for title and SSH key)
+                    -> to get SSH key -> cat ~/.ssh/id_rsa.pub
+                -> Test connection from terminal (ssh -T git@github.com)
+            -> if connection is successful git push -u origin master can be executed.
+
+II. Useful Heroku information
+1. Heroku keys
+    -> heroku keys:add (will search for existing keys)
+     -> after it is found and it is uploaded to Heorku, the ssh key will be asociated to Heorku account
+2. Create Heroku application
+ -> from the root folder: heroku create orlando-weather-application
+    *the name of the Heorku app needs to be unique
+-> after the applction is created two links will appear:
+    * first one is the link to the application
+    * second one is the link where the code can be pushed
+3. Intructions for Heroku to know what to do with the code.
+    -> in package.json the instructions needs to be added in scripts as key, value pair.
+    Example: 
+        ->   "scripts": {
+    "start": "node src/app.js"
+  }
+        -> heroku will execute this command: npm run start
+    -> in the app.js we need to change the port number as on Heorku servers other port will be used.
+        -> we need to declare a variable for port where the value is taken from the Heorku server
+            -> const port = process.env.PORT || 3000 (port on server if exists or 3000 as default if it doesn't)
+            -> port variable will be used (e.g. app.listen(port, () => {
+    console.log('Server is up on port ' + port)
+}))
+4. Make sure the fetch is not done to local host
+    -> e.g.  fetch('http://localhost:3000/weather?address=' + location).then((response)
+        -> we can leave it as fetch('/weather?address=' + location).then((response) so the application
+        will know to run on local host or Heroku server.
+5. Commit to Heorku
+    ->
