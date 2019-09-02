@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/OJurcone/node-weather-wesite/issues"
   },
-  "homepage": "https://github.com/OJurcone/node-weather-wesite#readme"
+  "homepage": "https://github.com/OJurcone/node-weather-wesite#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
