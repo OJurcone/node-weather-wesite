@@ -58,7 +58,7 @@ app.get('/weather', (req, res) =>{
                 error: errorGeo
             }])
         }else{
-            forecast(coordinates, (errorForecast, {temperature, precipitation}) =>{
+            forecast(coordinates, (errorForecast, {temperatureLow, temperature, temperatureMax, precipitation}) =>{
                 if (errorForecast){
                     return res.send([{
                         error: errorForecast
@@ -71,7 +71,9 @@ app.get('/weather', (req, res) =>{
                     res.send([{
                         title: "Current weather",
                         location: location,
+                        temperatureLow: temperatureLow,
                         temperature: temperature,
+                        temperatureMax: temperatureMax,
                         precipitation: precipitation
                      }])
                 }
