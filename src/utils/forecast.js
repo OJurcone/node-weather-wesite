@@ -12,7 +12,7 @@ const forecast = (coordinates, callback) => {
             }else{
                 callback(undefined, {
                     temperatureLow: 'The lowest temperature today is: ' + body.daily.data[0].temperatureLow,
-                    temperature: 'It is currently ' + body.currently.temperature + ' degrees out.',
+                    temperature: 'It is currently ' + body.currently.temperature + '°C degrees out.',
                     temperatureMax: 'The highest temperature today will be: ' + body.daily.data[0].temperatureHigh, 
                     precipitation: 'There is a ' + body.currently.precipProbability + '% chance of rain'
                 })

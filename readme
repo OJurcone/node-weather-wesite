@@ -66,3 +66,11 @@ II. Useful Heroku information
     -> if "git remote" is typed we need to have both heroku (configured by Heroku) and origin (configured by us)
     -> we need to push on Heorku master repository now
         -> git push heroku master
+
+III. How to run the program from terminal easily
+    -> in package.json add another script with the terminal command you want to use
+        -> e.g.   "scripts": {
+    "start": "node src/app.js",
+    "dev":"nodemon src/app.js -e js,hbs"
+  },
+    -> to run the script type: npm run dev

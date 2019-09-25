@@ -9,7 +9,9 @@ const geocode = (address, callback) => {
         }else if(body.features.length === 0){
             callback('Endpoint provided is incorrect', undefined)
         }else{
-            const coordinates = body.features[0].center
+            const latitude = body.features[0].center[0]
+            const longitude = body.features[0].center[1]
+            const coordinates = longitude + ',' + latitude
             const location = body.features[0].place_name
             callback(undefined, {
                 coordinates: coordinates,
